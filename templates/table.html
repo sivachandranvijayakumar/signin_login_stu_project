@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Details</h2>
+<table border="1" style="border-collapse: collapse;">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Roll_No</th>
+        <th>Grade</th>
+        <th colspan="2">Action</th>
+        
+    </tr>
+    {% for detail in data %}
+    <tr>
+        <td>{{loop.index}}</td>
+        <td>{{detail[1]}}</td>
+        <td>{{detail[2]}}</td>
+        <td>{{detail[3]}}</td>
+        <td>{{detail[4]}}</td>
+        <td><button><a href="{{ url_for('edit', id = detail[0])}}">Edit</a></button></td>
+        <td><button><a href="{{ url_for('delete', id = detail[0])}}">Delete</a></button></td>
+    </tr>
+    {% endfor %}
+</table>
+<button><a href="{{url_for('add')}}">Add detail</a></button>
+<button><a href="{{url_for('logout')}}">Logout</a></button>
+</body>
+</html>
